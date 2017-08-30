@@ -9,11 +9,11 @@
   </head>
   <body>
     <h1>Hello {{ request.POST.loginemail }}</h1>
-    {% for user in user %}
+    {% for user in all_users %}
         {{ user.full_name}}
     {% endfor %}
     <br>
-    Fullname : {{ user.full_name }}
+    Fullname : {{ current_user.alias }}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

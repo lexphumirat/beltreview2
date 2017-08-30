@@ -6,6 +6,7 @@ from django.db import models
 from django.contrib import messages
 
 class UserManager(models.Manager):
+
     def validate(self,request, post_data):
         if len(post_data['full_name']) < 2 or len(post_data['alias']) < 2 or len(post_data['email']) < 2:
             messages.error(request, 'You need more than two letters')
@@ -19,6 +20,19 @@ class UserManager(models.Manager):
             password = request.POST['password'],
             dob = request.POST['dob']
             )
+
+    def validate_login(self, post_data):
+        errors = []
+        if len(self.filter(email=post_data['email'])) > 0:
+            user = self.filter(email=post_data['email'])[0]
+            errors.append('email incorrect again')
+            #check user's password
+        else:
+            errors.append('email incorrect')
+
+        if errors:
+            return errors
+        return user
 
 class User(models.Model):
     full_name = models.CharField(max_length=100)

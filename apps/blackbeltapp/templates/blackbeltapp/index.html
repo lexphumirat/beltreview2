@@ -38,9 +38,9 @@
             </form>
             </div>
             <div class="col">
-            <form class="" action="/logmein" method="POST">
+            <form class="" action="/login" method="POST">
                 {% csrf_token %}
-                Email Login: <input type="text" class="form-control" name="loginemail" value=""><br>
+                Email Login: <input type="text" class="form-control" name="email" value=""><br>
                 Password: <input type="password" class="form-control" name="loginpassword" value=""><br>
                 <input type="submit" name="" value="login">
 

@@ -4,7 +4,8 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^register$', views.register),
     url(r'^logmein$', views.logmein),
-    url(r'^friends/(?P<id>\d+)$' , views.logmein)
+    url(r'^login$', views.login),
+    url(r'^success$', views.success)
 
 
 ]
